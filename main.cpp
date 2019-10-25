@@ -176,3 +176,40 @@ void start (void)
         exit(0);
     }
 }
+
+
+
+void AddClass(string fileName)
+{
+    const char* fName = fileName.c_str();
+    ifstream input;
+    input.open(fName, ios::in);
+    Class newClass;
+    getline(input, newClass.ClassName);
+    input >> newClass.Capacity;
+    for (size_t i = 0; i < newClass.Capacity; i++)
+    {
+        string date;
+        Student newStudent;
+        input >> newStudent.Firstname;
+        input >> newStudent.Lastname;
+        input >> date;
+        string temp[3];
+        size_t counter = 0;
+        for(auto j : date)
+        {
+            if (j != '/')
+                temp[counter] += j;
+            else
+                counter++;
+        }
+        newStudent.Birthday.Year = stoi(temp[0]);
+        newStudent.Birthday.Month = stoi(temp[1]);
+        newStudent.Birthday.Day = stoi(temp[2]);
+        input >> newStudent.Grade;
+        input >> newStudent.ID;
+        newClass.Data.push_back(newStudent);
+    }
+    Database.push_back(newClass);
+    input.close();
+}
