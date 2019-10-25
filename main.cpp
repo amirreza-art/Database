@@ -213,3 +213,25 @@ void AddClass(string fileName)
     Database.push_back(newClass);
     input.close();
 }
+void RemoveStudent(unsigned long long int id)
+{
+    if ( CurrentClass == "")
+    {
+        cout << "slect nakardi" << endl;
+        return;
+    }
+    for(Class &i : Database)
+    {
+        if (i.ClassName == CurrentClass)
+        {
+            for (size_t j = 0; j < i.Data.size(); j++)
+            {
+                if(i.Data.at(j).ID == id)
+                {
+                    i.Data.erase(i.Data.begin() + j);
+                    i.Capacity--;
+                }
+            }
+        }
+    }
+}
