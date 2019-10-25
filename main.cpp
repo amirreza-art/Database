@@ -235,3 +235,30 @@ void RemoveStudent(unsigned long long int id)
         }
     }
 }
+void Search (unsigned long long id)
+{
+     if ( CurrentClass == "")
+    {
+        cout << "slect nakardi" << endl;
+        return;
+    }
+       for(Class &i : Database)
+    {
+        if (i.ClassName == CurrentClass)
+        {
+            for (size_t j = 0; j < i.Data.size(); j++)
+            {
+                if(i.Data.at(j).ID == id)
+                {
+                    cout << i.Data.at(j).ID << endl;
+                    cout << i.Data.at(j).Firstname << endl;
+                    cout << i.Data.at(j).Lastname << endl;
+                    cout << i.Data.at(j).Grade << endl;
+                    cout << i.Data.at(j).Birthday.Year << "/";
+                    cout << i.Data.at(j).Birthday.Month << "/";
+                    cout << i.Data.at(j).Birthday.Day << endl;
+                }
+            }
+        }
+    }
+}
