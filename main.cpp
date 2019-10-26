@@ -323,3 +323,31 @@ void RemoveClass(string CurrentClass)
         }
     }
 }
+void Search(string firstname, string lastname)
+{
+    if ( CurrentClass == "")
+    {
+        cout << "slect nakardi" << endl;
+        return;
+    }
+
+    for(Class &i : Database)
+    {
+        if (i.ClassName == CurrentClass)
+        {
+            for (size_t j = 0; j < i.Data.size(); j++)
+            {
+                if(i.Data.at(j).Firstname == firstname && i.Data.at(j).Lastname == lastname)
+                {
+                    cout << i.Data.at(j).ID << endl;
+                    cout << i.Data.at(j).Firstname << endl;
+                    cout << i.Data.at(j).Lastname << endl;
+                    cout << i.Data.at(j).Grade << endl;
+                    cout << i.Data.at(j).Birthday.Year << "/";
+                    cout << i.Data.at(j).Birthday.Month << "/";
+                    cout << i.Data.at(j).Birthday.Day << endl;
+                }
+            }
+        }
+    }
+}
