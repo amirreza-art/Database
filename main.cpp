@@ -262,3 +262,18 @@ void Search (unsigned long long id)
         }
     }
 }
+void SelectClass (string classname)
+{
+    bool classfound = false;
+    for ( Class &i : Database)
+    {
+        if ( i.ClassName == classname)
+        {
+            CurrentClass = classname;
+            classfound = true;
+            break;
+        }
+    }
+    if ( classfound == false)
+    cout << "class not found" <<endl;
+}
