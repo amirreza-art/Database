@@ -308,3 +308,18 @@ void AddStudent(string fullname , Date dataObj, unsigned long long int id, float
             }
         }
 }
+void RemoveClass(string CurrentClass)
+{
+     if ( CurrentClass == "")
+    {
+        cout << "slect nakardi" << endl;
+        return;
+    }
+    for ( size_t i = 0 ; i < Database.size(); i++)
+    {
+        if ( Database.at(i).ClassName == CurrentClass)
+        {
+            Database.erase(Database.begin() + i);
+        }
+    }
+}
