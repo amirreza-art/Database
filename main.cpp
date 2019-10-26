@@ -277,3 +277,34 @@ void SelectClass (string classname)
     if ( classfound == false)
     cout << "class not found" <<endl;
 }
+void AddStudent(string fullname , Date dataObj, unsigned long long int id, float grade)
+{
+        if ( CurrentClass == "")
+        {
+            cout << "slect nakardi" << endl;
+            return;
+        }
+        Student newStudent;
+        string temp[2];
+        size_t counter = 0;
+        for(auto j : fullname)
+        {
+            if (j != ' ')
+                temp[counter] += j;
+            else
+                counter++;
+        }
+        newStudent.Firstname = temp[0];
+        newStudent.Lastname = temp[1];
+        newStudent.Grade = grade;
+        newStudent.ID = id;
+        newStudent.Birthday = dataObj;
+        for (Class &i : Database)
+        {
+            if ( i.ClassName == CurrentClass)
+            {
+                i.Data.push_back(newStudent);
+                i.Capacity++;
+            }
+        }
+}
