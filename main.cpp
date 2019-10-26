@@ -391,3 +391,24 @@ void ShowAll()
         }
     }
 }
+void SortByID(string classname )
+{
+    for ( Class &i : Database)
+    {
+        if ( i.ClassName == classname)
+        {
+            for ( size_t j = i.Data.size() - 1; j > 0 ; j--)
+            {
+                for ( int k = 0 ; k < j ; k++)
+                {
+                    if ( i.Data.at(k).ID > i.Data.at(k+1).ID)
+                    swap ( i.Data.at(k).ID , i.Data.at(k+1).ID);
+                }
+            }
+        }
+    }
+}
+void SortByID()
+{
+    SortByID(CurrentClass);
+}
