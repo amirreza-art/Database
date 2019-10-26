@@ -437,3 +437,51 @@ void SortByName()
 {
     SortByName(CurrentClass);
 }
+void Save()
+{
+    ofstream ofs;
+    ofs.open(CurrentClass + ".basu", ofstream::out | ofstream::trunc);
+    for ( Class &i : Database)
+    {
+        if ( i.ClassName == CurrentClass)
+        {
+            ofs << i.ClassName << endl;
+            ofs << i.Capacity << endl;
+            for ( size_t j = 0; j < i.Data.size(); j++)
+            {
+                ofs << i.Data.at(j).Firstname << " ";
+                ofs << i.Data.at(j).Lastname << " ";
+                ofs << i.Data.at(j).Birthday.Year << "/";
+                ofs << i.Data.at(j).Birthday.Month << "/";
+                ofs << i.Data.at(j).Birthday.Day << " ";
+                ofs << i.Data.at(j).Grade << " ";
+                ofs << i.Data.at(j).ID << "\n";
+            }
+        }
+    }
+    ofs.close();
+}
+void Save(string classname)
+{
+    ofstream ofs;
+    ofs.open(classname + ".basu", ofstream::out | ofstream::trunc);
+    for ( Class &i : Database)
+    {
+        if ( i.ClassName == classname)
+        {
+            ofs << i.ClassName << endl;
+            ofs << i.Capacity << endl;
+            for ( size_t j = 0; j < i.Data.size(); j++)
+            {
+                ofs << i.Data.at(j).Firstname << " ";
+                ofs << i.Data.at(j).Lastname << " ";
+                ofs << i.Data.at(j).Birthday.Year << "/";
+                ofs << i.Data.at(j).Birthday.Month << "/";
+                ofs << i.Data.at(j).Birthday.Day << " ";
+                ofs << i.Data.at(j).Grade << " ";
+                ofs << i.Data.at(j).ID << "\n";
+            }
+        }
+    }
+    ofs.close();
+}
