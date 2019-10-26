@@ -412,3 +412,28 @@ void SortByID()
 {
     SortByID(CurrentClass);
 }
+void SortByName(string classname)
+{
+    for ( Class &i : Database)
+    {
+        if ( i.ClassName == classname)
+        {
+            for ( size_t j = i.Data.size() - 1; j > 0; j--)
+            {
+                for ( int k = 0; k < j; k++)
+                {
+                    if ( strcmp(i.Data.at(k).Lastname.c_str(), i.Data.at(k+1).Lastname.c_str()) == 1)
+                    swap ( i.Data.at(k).Lastname, i.Data.at(k+1).Lastname);
+                }
+            }
+
+        }
+    }
+
+
+
+}
+void SortByName()
+{
+    SortByName(CurrentClass);
+}
