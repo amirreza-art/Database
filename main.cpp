@@ -351,3 +351,25 @@ void Search(string firstname, string lastname)
         }
     }
 }
+void ShowClass( string CurrentClass )
+{
+    for ( Class &i : Database)
+    {
+        if ( i.ClassName == CurrentClass )
+        {
+            cout << i.ClassName <<endl;
+            cout << i.Capacity << endl;
+            for ( size_t j = 0 ; j < i.Data.size() ; j++)
+            {
+                cout << i.Data.at(j).ID << " " ;
+                cout << i.Data.at(j).Firstname << " " ;
+                cout << i.Data.at(j).Lastname << " " ;
+                cout << i.Data.at(j).Grade << " " ;
+                cout << i.Data.at(j).Birthday.Year << "/";
+                cout << i.Data.at(j).Birthday.Month << "/";
+                cout << i.Data.at(j).Birthday.Day << endl;
+            }
+
+        }
+    }
+}
